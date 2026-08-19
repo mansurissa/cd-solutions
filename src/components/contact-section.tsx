@@ -2,37 +2,42 @@
 
 import { type FormEvent, useState } from "react";
 
-type FormStatus = "idle" | "sending" | "success" | "error";
+type ContactSectionProps = {
+  recipientEmail: string;
+};
 
-export default function ContactSection() {
-  const [status, setStatus] = useState<FormStatus>("idle");
+export default function ContactSection({ recipientEmail }: ContactSectionProps) {
   const [feedback, setFeedback] = useState("");
+  const [hasError, setHasError] = useState(false);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = event.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
 
-    setStatus("sending");
-    setFeedback("");
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      const result = await response.json();
-
-      if (!response.ok) throw new Error(result.error || "Unable to send your message.");
-
-      form.reset();
-      setStatus("success");
-      setFeedback("Thank you. Your project brief has been sent successfully.");
-    } catch (error) {
-      setStatus("error");
-      setFeedback(error instanceof Error ? error.message : "Unable to send your message.");
+    if (!recipientEmail) {
+      setHasError(true);
+      setFeedback("The contact email has not been configured.");
+      return;
     }
+
+    const data = new FormData(event.currentTarget);
+    const name = String(data.get("name") || "");
+    const contact = String(data.get("contact") || "");
+    const service = String(data.get("service") || "General enquiry");
+    const message = String(data.get("message") || "");
+    const subject = `CD Solutions project enquiry: ${service}`;
+    const body = [
+      "Hello CD Solutions,",
+      "",
+      message,
+      "",
+      `Name: ${name}`,
+      `Phone or email: ${contact}`,
+      `Service needed: ${service}`,
+    ].join("\n");
+
+    setHasError(false);
+    setFeedback("Your email application should open with the project details ready to send.");
+    window.location.href = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
   return (
@@ -50,9 +55,8 @@ export default function ContactSection() {
           </div>
           <label><span>Service needed</span><select name="service" defaultValue="" required><option value="" disabled>Select a service</option><option>Construction & civil works</option><option>Planning & project delivery</option><option>Cost & quantity services</option><option>Materials & procurement</option><option>Equipment hire</option><option>Transport & distribution</option></select></label>
           <label><span>Project brief</span><textarea name="message" rows={4} maxLength={3000} required placeholder="Tell us about the project, site, and timeline" /></label>
-          <label className="form-honeypot" aria-hidden="true"><span>Website</span><input type="text" name="website" tabIndex={-1} autoComplete="off" /></label>
-          <button type="submit" className="button button--white" disabled={status === "sending"}>{status === "sending" ? "Sending..." : "Send project brief"}</button>
-          {feedback && <p className={`form-feedback form-feedback--${status}`} role="status" aria-live="polite">{feedback}</p>}
+          <button type="submit" className="button button--white">Prepare email</button>
+          {feedback && <p className={`form-feedback form-feedback--${hasError ? "error" : "success"}`} role="status" aria-live="polite">{feedback}</p>}
         </form>
       </div>
     </section>

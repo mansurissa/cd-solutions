@@ -19,7 +19,7 @@ export default function HomePage() {
         <AboutSection />
         <ProcessSection />
         <WhyUsSection />
-        <ContactSection />
+        <ContactSection recipientEmail={process.env.CONTACT_EMAIL || ""} />
       </main>
       <SiteFooter />
     </>

@@ -2,7 +2,7 @@ export const navLinks = [
   { label: "Services", href: "/#services" },
   { label: "Capabilities", href: "/#capabilities" },
   { label: "Approach", href: "/#approach" },
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/about" },
 ];
 
 export const serviceGroups = [
@@ -15,10 +15,46 @@ export const serviceGroups = [
     heroImage: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=90",
     heroAlt: "Active building construction site",
     items: [
-      "General construction services", "Building construction", "Masonry and concrete works",
-      "Site preparation and groundworks", "Excavation and land leveling",
-      "Road, driveway, and parking construction", "Landscaping and outdoor works",
-      "Building renovation and maintenance",
+      {
+        title: "General construction services",
+        description:
+          "Comprehensive on-site coordination of trades, materials, and schedule to keep projects moving safely and consistently from start to handover.",
+      },
+      {
+        title: "Building construction",
+        description:
+          "Full delivery support for structural and architectural works, including planning, workforce coordination, quality checks, and practical site supervision.",
+      },
+      {
+        title: "Masonry and concrete works",
+        description:
+          "Formation and execution of durable walls, columns, and slabs with proper mix planning, alignment, curing control, and workmanship checks.",
+      },
+      {
+        title: "Site preparation and groundworks",
+        description:
+          "Clearing, leveling, drainage, and foundational readiness services that create a stable base before heavier structural activities begin.",
+      },
+      {
+        title: "Excavation and land leveling",
+        description:
+          "Precise earthworks using safe sequencing and accurate cut-and-fill coordination to protect soil stability and timeline efficiency.",
+      },
+      {
+        title: "Road, driveway, and parking construction",
+        description:
+          "Construction of durable internal roads, access routes, and parking systems designed for daily site and client mobility requirements.",
+      },
+      {
+        title: "Landscaping and outdoor works",
+        description:
+          "Implementation of external site finishes including grading, drainage alignment, and hardscape features that improve function and curb appeal.",
+      },
+      {
+        title: "Building renovation and maintenance",
+        description:
+          "Targeted refurbishment, upgrades, and preventive maintenance support to restore safety, performance, and long-term usability.",
+      },
     ],
   },
   {
@@ -30,8 +66,31 @@ export const serviceGroups = [
     heroImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=90",
     heroAlt: "Project plans and documents on a work table",
     items: [
-      "Construction consultancy", "Construction project planning", "Construction project management",
-      "Site assessment and site planning", "Project support services",
+      {
+        title: "Construction consultancy",
+        description:
+          "Expert advice on feasibility, scope, sequencing, and alternatives that reduce risk and improve value before procurement begins.",
+      },
+      {
+        title: "Construction project planning",
+        description:
+          "Detailed work breakdowns and schedules aligned to budget, resources, permits, and weather-sensitive sequencing.",
+      },
+      {
+        title: "Construction project management",
+        description:
+          "Active coordination of contractors, deliverables, timelines, and change control so scope and quality remain aligned.",
+      },
+      {
+        title: "Site assessment and site planning",
+        description:
+          "Early-site evaluation covering access, drainage, soil conditions, utilities, and constraints to avoid avoidable delays.",
+      },
+      {
+        title: "Project support services",
+        description:
+          "Ongoing support on reporting, procurement follow-up, progress monitoring, and practical decision support for stakeholders.",
+      },
     ],
   },
   {
@@ -42,7 +101,28 @@ export const serviceGroups = [
     overview: "Reliable project decisions begin with accurate information. Our cost and quantity services establish a clearer view of requirements, material volumes, and likely expenditure.",
     heroImage: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1800&q=90",
     heroAlt: "Cost planning documents and calculator",
-    items: ["Construction cost estimation", "Quantity surveying", "Material estimation", "Construction materials consultancy"],
+    items: [
+      {
+        title: "Construction cost estimation",
+        description:
+          "Reliable pre-start and updateable cost forecasts with realistic contingencies tied to design intent and procurement strategy.",
+      },
+      {
+        title: "Quantity surveying",
+        description:
+          "Accurate measuring and pricing support for materials, labor, and scope to improve budget certainty and reduce variations.",
+      },
+      {
+        title: "Material estimation",
+        description:
+          "Precise take-off and requirement planning for materials, waste allowances, and timing aligned with site demand.",
+      },
+      {
+        title: "Construction materials consultancy",
+        description:
+          "Recommendations on sourcing, specification balance, and substitution options that protect budget while maintaining quality and durability.",
+      },
+    ],
   },
   {
     number: "04",
@@ -53,9 +133,41 @@ export const serviceGroups = [
     heroImage: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1800&q=90",
     heroAlt: "Construction materials prepared for use",
     items: [
-      "Construction material supply", "Bricks and sand supply", "Pavers supply and installation",
-      "Aggregates and gravel supply", "Cement and other building materials",
-      "Bulk construction material supply", "Material procurement",
+      {
+        title: "Construction material supply",
+        description:
+          "End-to-end supply coordination for core project materials, with consistent quality checks and traceable sourcing.",
+      },
+      {
+        title: "Bricks and sand supply",
+        description:
+          "Timely provision of masonry and finishing materials sized and sorted for the specific specification of each site section.",
+      },
+      {
+        title: "Pavers supply and installation",
+        description:
+          "Procurement and implementation support for paved pathways, courtyards, and driveway systems with layout-aware installation planning.",
+      },
+      {
+        title: "Aggregates and gravel supply",
+        description:
+          "Consistent supply of graded aggregates for concrete, base layers, and site access that protects quality and compaction outcomes.",
+      },
+      {
+        title: "Cement and other building materials",
+        description:
+          "Reliable sourcing and replenishment of binding and finishing materials to support uninterrupted production on site.",
+      },
+      {
+        title: "Bulk construction material supply",
+        description:
+          "Large volume material planning and restocking arrangements for high-demand projects with strict schedule and storage constraints.",
+      },
+      {
+        title: "Material procurement",
+        description:
+          "Vendor selection, order management, inspection checkpoints, and cost control for every material purchase cycle.",
+      },
     ],
   },
   {
@@ -66,7 +178,23 @@ export const serviceGroups = [
     overview: "Access to the right equipment at the right stage helps site teams maintain momentum. We align machinery hire and operational support with the planned sequence of work.",
     heroImage: "https://images.unsplash.com/photo-1489514354504-1653aa90e34e?auto=format&fit=crop&w=1800&q=90",
     heroAlt: "Heavy construction equipment operating on site",
-    items: ["Construction equipment hire", "Construction machinery hire", "On-site operational support"],
+    items: [
+      {
+        title: "Construction equipment hire",
+        description:
+          "Provision of suitable equipment packages for short or recurring projects with practical operator and maintenance coordination.",
+      },
+      {
+        title: "Construction machinery hire",
+        description:
+          "Selection and delivery of earthmoving, lifting, and site-use machinery matched to task requirements and timeline.",
+      },
+      {
+        title: "On-site operational support",
+        description:
+          "Practical support for equipment placement, sequencing, and safe operation to protect productivity and reduce downtime.",
+      },
+    ],
   },
   {
     number: "06",
@@ -76,7 +204,23 @@ export const serviceGroups = [
     overview: "Our logistics support connects procurement and site activity through planned transportation, construction-site delivery, and distribution tailored to project requirements.",
     heroImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1800&q=90",
     heroAlt: "Freight containers at a logistics terminal",
-    items: ["Material transportation", "Construction site delivery", "Logistics and distribution"],
+    items: [
+      {
+        title: "Material transportation",
+        description:
+          "Reliable inland movement of materials from suppliers to staging points with tracking and route planning for delivery windows.",
+      },
+      {
+        title: "Construction site delivery",
+        description:
+          "Scheduled drop-offs, unloading planning, and delivery checks to match workforce and installation needs on the day.",
+      },
+      {
+        title: "Logistics and distribution",
+        description:
+          "Integrated distribution planning for multiple sites, urgent replenishment, and coordinated stock flow during critical phases.",
+      },
+    ],
   },
 ];
 

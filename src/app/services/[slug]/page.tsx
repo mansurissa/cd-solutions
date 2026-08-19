@@ -6,15 +6,16 @@ import SiteHeader from "@/components/site-header";
 import { processSteps, serviceGroups } from "@/data/siteData";
 
 type ServicePageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
   return serviceGroups.map((service) => ({ slug: service.slug }));
 }
 
-export function generateMetadata({ params }: ServicePageProps): Metadata {
-  const service = serviceGroups.find((item) => item.slug === params.slug);
+export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const service = serviceGroups.find((item) => item.slug === slug);
 
   if (!service) return {};
 
@@ -24,8 +25,9 @@ export function generateMetadata({ params }: ServicePageProps): Metadata {
   };
 }
 
-export default function ServicePage({ params }: ServicePageProps) {
-  const service = serviceGroups.find((item) => item.slug === params.slug);
+export default async function ServicePage({ params }: ServicePageProps) {
+  const { slug } = await params;
+  const service = serviceGroups.find((item) => item.slug === slug);
 
   if (!service) notFound();
 
@@ -59,7 +61,13 @@ export default function ServicePage({ params }: ServicePageProps) {
             </div>
             <ol className="scope-list">
               {service.items.map((item, index) => (
-                <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item}</h3></li>
+                <li key={item.title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </li>
               ))}
             </ol>
           </div>

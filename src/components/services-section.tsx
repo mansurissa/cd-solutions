@@ -14,7 +14,7 @@ export default function ServicesSection() {
             <article className="service-card" key={service.number}>
               <div className="service-card__top"><span className="service-card__number">{service.number}</span></div>
               <h3><Link href={`/services/${service.slug}`}>{service.title}</Link></h3><p>{service.description}</p>
-              <ul>{service.items.map((item) => <li key={item}>{item}</li>)}</ul>
+              <ul>{service.items.map((item) => <li key={item.title}>{item.title}</li>)}</ul>
               <Link className="service-card__link" href={`/services/${service.slug}`}>View service</Link>
             </article>
           ))}
