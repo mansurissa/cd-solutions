@@ -1,6 +1,7 @@
 import AboutSection from "@/components/about-section";
 import ContactSection from "@/components/contact-section";
 import HeroSection from "@/components/hero-section";
+import StatsSection from "@/components/stats-section";
 import ProcessSection from "@/components/process-section";
 import ProjectSection from "@/components/project-section";
 import ServicesSection from "@/components/services-section";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <SiteHeader />
       <main>
         <HeroSection />
+        <StatsSection />
         <ServicesSection />
         <ProjectSection />
         <AboutSection />
